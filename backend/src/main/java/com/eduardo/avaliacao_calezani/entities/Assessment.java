@@ -17,14 +17,19 @@ public class Assessment {
     @JoinColumn(name = "driver_id")
     private Driver driver;
 
+    @ManyToOne
+    @JoinColumn(name = "driver_id")
+    private Station station;
+
     public Assessment() {
     }
 
-    public Assessment(Long id, int score, String comment, Driver driver) {
+    public Assessment(Long id, int score, String comment, Driver driver, Station station) {
         this.id = id;
         this.score = score;
         this.comment = comment;
         this.driver = driver;
+        this.station = station;
     }
 
 
@@ -58,5 +63,13 @@ public class Assessment {
 
     public void setDriver(Driver driver) {
         this.driver = driver;
+    }
+
+    public Station getStation() {
+        return station;
+    }
+
+    public void setStation(Station station) {
+        this.station = station;
     }
 }
